@@ -69,6 +69,7 @@ const evalWinner = (table, turn) => {
     if (one === turn && two === turn && three === turn && one != null) {
       return true;
     }
+    return false
   };
 
   const evalCols = () => {
@@ -88,8 +89,8 @@ const evalWinner = (table, turn) => {
     }
     return win;
   };
-  const col = evalCols();
-  return col ? turn : null;
+  const win = evalCols();
+  return win ? turn : null;
 };
 
 const findLowestRow = (table, column) => {
@@ -167,7 +168,7 @@ const RenderBoard = () => {
   const turnText = () => {
     const text =
       (boardState.turn === "yellow" ? "Yellow's" : "Red's") + " turn";
-    const winner =
+    const winner = "Connect Four! " +
       (boardState.winner === "yellow" ? "Yellow" : "Red") + " wins!";
     return boardState.winner ? winner : text;
   };
