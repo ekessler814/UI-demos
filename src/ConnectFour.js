@@ -52,7 +52,7 @@ const genGrid = () => {
   return rows;
 };
 
-const TicTacToeContext = createContext();
+const ConnectFourContext = createContext();
 
 const evalWinner = (table, turn) => {
   const evalDiag = (row, cell, pos, pos2) => {
@@ -107,7 +107,7 @@ const findLowestRow = (table, column) => {
 
 const RenderSquare = ({ info }) => {
   const { columnIdx, rowIdx } = info;
-  const { boardState, setState } = useContext(TicTacToeContext);
+  const { boardState, setState } = useContext(ConnectFourContext);
   const { board } = boardState;
   const arrCell = board[rowIdx][columnIdx];
 
@@ -153,7 +153,7 @@ const RenderSquare = ({ info }) => {
 };
 
 const RenderBoard = () => {
-  const { boardState } = useContext(TicTacToeContext);
+  const { boardState } = useContext(ConnectFourContext);
   const { board } = boardState;
 
   const cells = board.map((iter, rowIdx) => {
@@ -188,7 +188,7 @@ const RenderBoard = () => {
   );
 };
 
-const TicTacToe = () => {
+const ConnectFour = () => {
   const [boardState, setState] = useState({ loading: true });
 
   const reset = () => {
@@ -209,7 +209,7 @@ const TicTacToe = () => {
   }
 
   return (
-    <TicTacToeContext.Provider value={{ boardState, setState }}>
+    <ConnectFourContext.Provider value={{ boardState, setState }}>
       <div style={styles.outer}>
         <h1>Connect Four</h1>
         <button onClick={reset} style={styles.reset}>
@@ -217,8 +217,8 @@ const TicTacToe = () => {
         </button>
         <RenderBoard />
       </div>
-    </TicTacToeContext.Provider>
+    </ConnectFourContext.Provider>
   );
 };
 
-export default TicTacToe;
+export default ConnectFour;
