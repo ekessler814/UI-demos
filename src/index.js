@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import ConnectFour from './ConnectFour/ConnectFour';
+import CurrentWeather from './CurrentWeather/CurrentWeather'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ConnectFour />
+  {/*  <ConnectFour /> */}
+    <CurrentWeather />
   </React.StrictMode>
 );
 
